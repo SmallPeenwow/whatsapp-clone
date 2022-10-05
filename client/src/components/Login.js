@@ -11,6 +11,10 @@ const Login = ({ onIdSubmit }) => {
 		onIdSubmit(idRef.current.value);
 	}
 
+	function createNewId() {
+		onIdSubmit(uuidV4());
+	}
+
 	return (
 		<Container className='align-items-center d-flex' style={{ height: '100vh' }}>
 			<Form onSubmit={handleSubmit} className='w-100'>
@@ -21,7 +25,9 @@ const Login = ({ onIdSubmit }) => {
 				<Button type='submit' className='mr-2'>
 					Login
 				</Button>
-				<Button variant='secondary'>Create A New ID</Button>
+				<Button onClick={createNewId} variant='secondary'>
+					Create A New ID
+				</Button>
 			</Form>
 		</Container>
 	);
